@@ -29,7 +29,7 @@
 | **SNS Topic** | s3NotificationTopic | Tópico para notificações de eventos |
 | **SNS Subscription** | Email endpoint | Recebimento de notificações por email |
 
-![Diagrama da Arquitetura AWS Cloud](foto1.jpeg)
+![Diagrama da Arquitetura AWS Cloud](images/foto1.jpeg)
 
 ## 🛠️ EXECUÇÃO PASSO A PASSO
 
@@ -47,7 +47,7 @@ Default region: us-west-2
 Output format: json
 ```
 
-![Configuração AWS CLI no EC2](foto2.jpeg)
+![Configuração AWS CLI no EC2](images/foto2.jpeg)
 
 ### 2. Criação do Bucket S3
 
@@ -94,7 +94,7 @@ Total Objects: 3
 Total Size: 1.1 MiB
 ```
 
-![Listagem de imagens no bucket](foto3.jpeg)
+![Listagem de imagens no bucket](images/foto3.jpeg)
 
 ### 5. Configuração de Credenciais mediacouser
 
@@ -114,7 +114,7 @@ Default region: us-west-2
 Default output: json
 ```
 
-![Credenciais de acesso do mediacouser](foto4.jpeg)
+![Credenciais de acesso do mediacouser](images/foto4.jpeg)
 
 ### 6. Testes com Usuário mediacouser
 
@@ -158,7 +158,7 @@ aws s3api delete-object --bucket cafe-200619 --key images/Strawberry-Tarts.jpg
 ```
 
 #### Teste de Upload via Console Web
-![Upload via Console AWS](foto7.jpeg)
+![Upload via Console AWS](images/foto7.jpeg)
 
 **Arquivo uploadado com sucesso:**
 - `cotovaineic.png` (427.8 KB)
@@ -177,7 +177,7 @@ aws sns create-topic --name s3NotificationTopic
 ARN: arn:aws:sns:us-west-2:967515471709:s3NotificationTopic
 ```
 
-![Criação do tópico SNS](foto9.jpeg)
+![Criação do tópico SNS](images/foto9.jpeg)
 
 #### Configuração da Política de Acesso do Tópico
 
@@ -205,7 +205,7 @@ ARN: arn:aws:sns:us-west-2:967515471709:s3NotificationTopic
 }
 ```
 
-![Configuração da política SNS](foto11.jpeg)
+![Configuração da política SNS](images/foto11.jpeg)
 
 #### Criação de Subscription Email
 ```bash
@@ -221,7 +221,7 @@ aws sns subscribe \
 Subscription ARN: arn:aws:sns:us-west-2:967515471709:s3NotificationTopic:04e73fe7-afe8-4b75-a574-0092cf953078
 ```
 
-![Configuração da subscription SNS](foto10.jpeg)
+![Configuração da subscription SNS](images/foto10.jpeg)
 
 ### 8. Configuração de Event Notifications no S3
 
@@ -298,7 +298,7 @@ aws s3api put-bucket-notification-configuration \
 }
 ```
 
-![Notificações SNS recebidas por email](foto13.jpeg)
+![Notificações SNS recebidas por email](images/foto13.jpeg)
 
 ### 10. Testes Adicionais de Funcionalidades
 
@@ -326,7 +326,7 @@ sleep 10
 aws s3 rm s3://cafe-200619/images/test-image.jpg
 ```
 
-![Testes de upload e remoção](foto12.jpeg)
+![Testes de upload e remoção](images/foto12.jpeg)
 
 #### Teste de Acesso Público Bloqueado
 ```bash
@@ -342,7 +342,7 @@ s3:PutObjectAcl on resource: "arn:aws:s3:::cafe-200619/images/Donuts.jpg"
 because public ACLs are prevented by the BlockPublicAccess setting in S3 Block Public Access.
 ```
 
-![Teste de acesso público bloqueado](foto15.jpeg)
+![Teste de acesso público bloqueado](images/foto15.jpeg)
 
 ### 11. Acesso via Browser
 
@@ -351,7 +351,7 @@ because public ACLs are prevented by the BlockPublicAccess setting in S3 Block P
 https://cafe-200619.s3.us-west-2.amazonaws.com/images/Notowagner.png?X-Amz-Algorithm=...
 ```
 
-![Acesso ao objeto via navegador](foto8.jpeg)
+![Acesso ao objeto via navegador](images/foto8.jpeg)
 
 ## ⚡ ARQUITETURA TÉCNICA DETALHADA
 
